@@ -17,11 +17,11 @@ Data Format
 ===========
 
 The format of training and testing data file is:
-
-"<label>	<index1>:<value1> <index2>:<value2> ..."
-".                                              "
-".                                              "
-".                                              "
+<pre>
+<label>	<index1>:<value1> <index2>:<value2> ...
+.
+.
+.
 
 Each line contains an instance and is ended by a '\n' character.
 
@@ -42,3 +42,4 @@ for the consideration of storage space and computational speed.
 
 Labels in the testing file are only used to calculate accuracy or errors. 
 If they are unknown, just fill the first column with any class labels.
+</pre>
