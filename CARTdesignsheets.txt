@@ -1,0 +1,24 @@
+CART c++实现 代码设计
+
+表示样本特征的结构体：
+struct sparse_feat
+{
+    vector<int> id_vec;
+    vector<float> value_vec;
+};
+//考虑回归树中特征的值不一定为整数，故使用float类型
+
+存储树的结构体：
+struct node
+{
+    int id;
+    int j;      //the splitting variable, jth feat of feat_vec
+    float s;    //the splitting point, valut of jth feat
+    float c;    //the output value
+    int leaf;
+    int left_child;
+    int right_child;
+};
+//考虑到将使用vector存储一棵树，故left_child和right_child使用
+//int类型，存储左右孩子的id，即在数组中的位置。
+//这样方便从文件中回复这棵树。
