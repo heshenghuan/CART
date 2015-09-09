@@ -22,3 +22,35 @@ struct node
 //考虑到将使用vector存储一棵树，故left_child和right_child使用
 //int类型，存储左右孩子的id，即在数组中的位置。
 //这样方便从文件中回复这棵树。
+
+CART类定义：
+class CART
+{
+protected:
+	vector<sparse_feat> samp_feat_vec;
+	vector<float> samp_class_vec;
+	int feat_set_size;
+	int class_set_size;
+	vector<node> tree;
+	int tree_id;
+
+public:
+	CART();
+	~CART();
+	void save_model(string model_file);
+	void load_model(string model_file);
+	void load_training_data(string training_file);
+	void learn(int tree_type);
+	vector<float> predict_vari_regression(sparse_feat samp_feat);
+	vector<float> predict_class_classification(sparse_feat samp_feat);
+	float predict_test_data(string test_file, string output_file, int tree_type);
+
+protected:
+	vector<string> string_split(string terms_str, string splitting_tag);
+	void read_samp_file(string samp_file, vector<sparse_feat> &samp_feat_vec, vector<float> &samp_class_vec);
+	float calc_acc(vector<float> &true_class_vec, vector<float> &pred_class_vec);
+	void create_regression_tree();
+	void create_classification_tree();
+    void pruning_regression_tree();
+	void pruning_classification_tree();
+};
