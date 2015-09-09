@@ -42,4 +42,4 @@ for the consideration of storage space and computational speed.
 
 Labels in the testing file are only used to calculate accuracy or errors. 
 If they are unknown, just fill the first column with any class labels.
-</pre>
+<\pre>
